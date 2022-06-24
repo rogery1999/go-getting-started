@@ -1,10 +1,16 @@
 package main
 
 import (
-	"fmt"
-	greetings "github.com/rogery1999/go-greetings-tutorial"
+	"github.com/rogery1999/go-greetings-tutorial"
+	"log"
 )
 
 func main() {
-	fmt.Println(greetings.Hello("Rogery"))
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+	message, err := greetings.HelloNames("Rogery", "Valeria")
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println(message)
 }
